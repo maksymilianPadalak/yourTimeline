@@ -122,7 +122,3 @@ closeModalBtn.addEventListener("click", () => {
 });
 
 
-
-//Dodam jeszcze jeden, a poprzedni usunę.
-//I tutaj tez
-//I jeszcze jeden

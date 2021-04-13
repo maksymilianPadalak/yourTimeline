@@ -18,12 +18,10 @@ body {
   background: #00050a;
 }
 
-
 button:hover {
   background-color: rgb(78, 161, 103);
   box-shadow: 0 15px 35px rgba(196, 218, 197, 0.15);
 }
-
 /* START SCREEN */
 
 .start-screen-wrapper h1 {
@@ -50,7 +48,7 @@ h1 .hi {
   height: 12vh;
   width: 50vw;
   font-family: "New Tegomin", serif;
-  font-size: 5vw;
+  font-size: 4vh;
   font-weight: bold;
   opacity: 0;
 }
@@ -88,6 +86,7 @@ h1 .hi {
   height: 3vh;
   width: 70vw;
   font-size: 100%;
+  max-width: 800px;
 }
 
 .account-info-wrapper label {
@@ -101,9 +100,10 @@ h1 .hi {
   height: 6vh;
   width: 50vw;
   font-family: "New Tegomin", serif;
-  font-size: 5vw;
+  font-size: 2.5vh;
   font-weight: bold;
   margin-top: 2vh;
+  max-width: 800px;
 }
 
 .validation-info {
@@ -146,6 +146,7 @@ h1 .hi {
   height: 3vh;
   width: 70vw;
   font-size: 100%;
+  max-width: 800px;
 }
 
 .login-inputs-wrapper tag {
@@ -163,15 +164,16 @@ h1 .hi {
   color: white;
   height: 6vh;
   width: 50vw;
-  font-size: 5vw;
+  font-size: 3vh;
   font-weight: bold;
+  max-width: 800px;
 }
 
 /* timeline */
 
 .timeline-window-wrapper {
-  display: none;
-  opacity: 0;
+  display: block;
+  opacity: 1;
   grid-template-rows: 10vh 1fr;
   background-color: #00050a;
 }
@@ -189,10 +191,10 @@ h1 .hi {
   color: white;
   height: 6vh;
   width: 50vw;
-  font-size: 4vw;
+  font-size: 2vh;
   font-weight: bold;
+  max-width: 400px;
 }
-
 
 .timeline-wrapper {
   min-height: 100vh;
@@ -235,7 +237,6 @@ h1 .hi {
   box-shadow: 0 15px 35px rgba(196, 218, 197, 0.15);
 }
 
-
 /* timeline element title */
 
 .timeline-content .headline-wrapper h1 {
@@ -260,6 +261,8 @@ h1 .hi {
   line-height: 30px;
   font-weight: 300;
 }
+
+/*responsive web design*/
 
 @media only screen and (min-width: 1020px) {
   .timeline::before {
@@ -298,7 +301,7 @@ h1 .hi {
     background-color: gray;
     border-radius: 50%;
     top: 0;
-    transform: translateX(401px) translateY(60px);
+    transform: translateX(401px) translateY(12px);
     transition: 1s;
   }
 
@@ -310,7 +313,7 @@ h1 .hi {
     background-color: gray;
     border-radius: 50%;
     top: 0;
-    transform: translateX(-61px) translateY(60px);
+    transform: translateX(-61px) translateY(12px);
     transition: 1s;
   }
 
@@ -339,6 +342,7 @@ h1 .hi {
   width: 80vw;
   display: "none";
   opacity: 0;
+  max-width: 700px;
 }
 
 .modal-header {
@@ -355,9 +359,9 @@ h1 .hi {
 
 .modal-header .close-modal-button {
   border: none;
-  background-color: #00050a;
+  background-color: transparent;
   color: white;
-  font-size: 6vw;
+  font-size: 2.5vh;
 }
 
 .modal-body {
@@ -366,7 +370,6 @@ h1 .hi {
   align-items: center;
   padding: 10px 15px;
 }
-
 
 .overlay {
   position: fixed;
@@ -387,8 +390,9 @@ h1 .hi {
   color: white;
   height: 6vh;
   width: 50vw;
-  font-size: 4vw;
+  font-size: 3vh;
   font-weight: bold;
+  max-width: 400px;
 }
 
 .modal-inputs-wrapper {
@@ -401,6 +405,7 @@ h1 .hi {
   color: white;
   border: 1px solid white;
   width: 60vw;
+  max-width: 600px;
 }
 
 .event-description-input {
