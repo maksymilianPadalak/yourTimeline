@@ -294,9 +294,9 @@ const sortTimelineElements = () => {
       /* check if the next item should
       switch place with the current item: */
       
-      console.log(b[i].querySelector('h4').textContent.substring(0,4))
+      console.log(b[i].querySelector('h4').textContent)
       
-      if (Number(b[i].querySelector('h4').textContent.substring(0,4)) > Number(b[i + 1].querySelector('h4').textContent.substring(0,4))) {
+      if (Date.parse(b[i].querySelector('h4').textContent) > Date.parse(b[i + 1].querySelector('h4').textContent)) {
         
         /* if next item is numerically
         lower than current item, mark as a switch

@@ -52,7 +52,7 @@ const sortTimelineElements = () => {
       /* check if the next item should
       switch place with the current item: */
       
-      console.log(b[i].querySelector('h4').textContent)
+      console.log(b[i].querySelector('h4').textContent.substring(0,4) + b[i].querySelector('h4').textContent.substring(5,7) + b[i].querySelector('h4').textContent.substring(8,10))
       
       if (Number(b[i].querySelector('h4').textContent) > Number(b[i + 1].querySelector('h4').textContent)) {
         
