@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/timeline.css" />
+  </head>
+  <body>
+    <div class="start-login-wrapper"> 
+      <div class="start-screen-wrapper">
+        <h1>
+          <span class="hi">Hi! I'm</span>
+          <span class="curson"></span>
+          <span class="text"></span>
+          <span class="cursor">_</span>
+        </h1>
+
+        <div class="start-button-wrapper">
+          <button class="start-btn">Click to start!</button>
+        </div>
+      </div>
+
+      <div class="create-account-wrapper">
+        <h2>Create Account</h2>
+
+        <div class="account-info-wrapper">
+          <label>Name</label>
+          <input type="text" class="name-input" />
+          <label>Username</label>
+          <input type="text" class="username-input" />
+          <label>Date of birth</label>
+          <input type="date" class="birth-input" />
+          <label>Password</label>
+          <input type="password" class="password-input" />
+          <label>Confirm password</label>
+          <input type="password" class="confirm-password-input" />
+        </div>
+
+        <h4 class="validation-info">
+          Your password must be at least 8 characters long and contain at least
+          one digit and upper letter.
+        </h4>
+
+        <button class="create-account-btn">Create account!</button>
+      </div>
+
+      <div class="login-wrapper">
+        <p>Welcome to Your Timeline!</p>
+        <div class="login-inputs-wrapper">
+          <tag>Username</tag>
+          <input class="username-login-input" type="text" />
+          <tag>Password</tag>
+          <input class="password-login-input" type="password" />
+        </div>
+
+        <div class="login-validation-wrapper"></div>
+
+        <button class="login-button">Log In!</button>
+      </div>
+    </div>
+
+      <div class="timeline-window-wrapper">
+        <div class="timeline-navigation-wrapper">
+          <button class="create-timeline-element-btn">
+            Create timline element
+          </button>
+        </div>
+        <div class="timeline-wrapper">
+          <div class="timeline">
+            <ul class="timeline-list">
+              <li>
+                <div class="timeline-content">
+                  <div class="headline-wrapper">
+                    <h1>VI High School Poznań</h1>
+                    <h4>2003</h4>
+                  </div>
+                  <p>
+                    In 2003 I started learning in VI High School in Poznań. I
+                    attended math and english classes.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="modal-wrapper" id="modal">
+          <div class="modal-header">
+            <div class="title">Event info</div>
+            <button class="close-modal-button">&times;</button>
+          </div>
+          <div class="modal-body">
+            <div class="modal-inputs-wrapper">
+              <label>Event title</label>
+              <input type="text" class="event-title-input" />
+              <label>Date</label>
+              <input type="text" class="event-date-input" type="number"/>
+              <label>Description</label>
+              <textarea type="text" class="event-description-input"></textarea>
+            </div>
+            <button class="submit-timline-element-btn">Submit!</button>
+          </div>
+        </div>
+        <div class="overlay"></div>
+      </div>
+
+    <script src="scripts/create-account.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/TextPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/EasePack.min.js"></script>
+  </body>
+</html>
