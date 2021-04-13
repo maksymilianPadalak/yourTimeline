@@ -31,7 +31,12 @@
           <label>Username</label>
           <input type="text" class="username-input" />
           <label>Date of birth</label>
-          <input type="date" class="birth-input" />
+          <input
+            type="date"
+            class="birth-input"
+            min="1900-01-01"
+            max="2021-01-01"
+          />
           <label>Password</label>
           <input type="password" class="password-input" />
           <label>Confirm password</label>
@@ -93,7 +98,13 @@
             <label>Event title</label>
             <input type="text" class="event-title-input" />
             <label>Date</label>
-            <input type="text" class="event-date-input" type="number" />
+            <input
+              type="date"
+              class="event-date-input"
+              type="number"
+              min="0-01-01"
+              max="3000-01-01"
+            />
             <label>Description</label>
             <textarea type="text" class="event-description-input"></textarea>
           </div>

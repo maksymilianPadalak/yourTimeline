@@ -1,5 +1,4 @@
 //Timeline screen
-
 const timeline = document.querySelector(".timeline-list");
 const timelineElement = timeline.firstElementChild.cloneNode(true);
 const createTimelineElementButton = document.querySelector(
@@ -14,12 +13,26 @@ const newElementDescriptionInput = document.querySelector(
   ".event-description-input"
 );
 
+const timelineElementsDataArray = []
+
+const createFirstTimelineElement = (title, date, description) => {
+  const timelineElement = timeline.firstElementChild;
+  timelineElement.querySelector("h1").textContent = title;
+  timelineElement.querySelector("h4").textContent = date;
+  timelineElement.querySelector("p").textContent = description;
+}
+
 const timelineElementCreator = (title, date, description) => {
   const timelineElement = timeline.firstElementChild.cloneNode(true);
   timelineElement.querySelector("h1").textContent = title;
   timelineElement.querySelector("h4").textContent = date;
   timelineElement.querySelector("p").textContent = description;
   timeline.append(timelineElement);
+  timelineElementsDataArray.push(({
+    title: title,
+    date: date,
+    description: description
+  }))
 };
 
 const sortTimelineElements = () => {
@@ -78,6 +91,7 @@ submitTimlineElementButton.addEventListener("click", () => {
     opacity: 0,
   });
   sortTimelineElements()
+  console.log(timelineElementsDataArray)
 });
 
 //fill in event info
@@ -121,4 +135,5 @@ closeModalBtn.addEventListener("click", () => {
   });
 });
 
+createFirstTimelineElement('Adam', 2000, 'Urodziłem się i co teraz?')
 

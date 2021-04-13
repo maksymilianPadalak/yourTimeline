@@ -172,8 +172,8 @@ h1 .hi {
 /* timeline */
 
 .timeline-window-wrapper {
-  display: block;
-  opacity: 1;
+  display: none;
+  opacity: 0;
   grid-template-rows: 10vh 1fr;
   background-color: #00050a;
 }

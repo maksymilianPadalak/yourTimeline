@@ -165,6 +165,7 @@ const loginUsername = document.querySelector(".username-login-input");
 const loginPassword = document.querySelector(".password-login-input");
 const loginBtn = document.querySelector(".login-button");
 const loginValidationText = document.querySelector(".login-validation-wrapper");
+let logedInUser;
 
 const userNameLoginValidation = () => {
   if (usernamesArray.includes(loginUsername.value.trim())) {
@@ -190,6 +191,15 @@ loginBtn.addEventListener("click", () => {
       loginValidationText.textContent = "Incorrect password! :(";
       loginValidationText.style.color = "red";
     } else {
+      //function that sets user as logged user
+
+      for (user of accounts) {
+        if (user.username === loginUsername.value.trim()) {
+          logedInUser = user;
+        }
+      }
+
+      console.log(`Welcome ${logedInUser.username}!`);
       console.log("You are reaady to log in!");
       gsap.to(".login-wrapper", {
         duration: 1,
@@ -202,7 +212,7 @@ loginBtn.addEventListener("click", () => {
         duration: 1,
         ease: "none",
         opacity: 1,
-        display: "block"
+        display: "block",
       });
       gsap.to(".start-login-wrapper", {
         duration: 0,
@@ -212,17 +222,25 @@ loginBtn.addEventListener("click", () => {
       });
       loginValidationText.textContent = "All good! :)";
       loginValidationText.style.color = "green";
+
+      //function createfirstTimelineElement is created later, to make every variable origin clear!
+
+      createFirstTimelineElement(
+        `The day ${logedInUser.name} was born!`,
+        logedInUser.dateOfBirth,
+        `What a year that was! It couldn't be differente, because on this day ${logedInUser.name} was born!`
+      );
     }
   }
 });
 
 //Timeline screen
-
 const timeline = document.querySelector(".timeline-list");
-const timelineElement = timeline.firstElementChild.cloneNode(true);
+
 const createTimelineElementButton = document.querySelector(
   ".create-timeline-element-btn"
 );
+
 const submitTimlineElementButton = document.querySelector(
   ".submit-timline-element-btn"
 );
@@ -232,12 +250,31 @@ const newElementDescriptionInput = document.querySelector(
   ".event-description-input"
 );
 
+const timelineElementsDataArray = [];
+
+const createFirstTimelineElement = (title, date, description) => {
+  const timelineElement = timeline.firstElementChild;
+  timelineElement.querySelector("h1").textContent = title;
+  timelineElement.querySelector("h4").textContent = date;
+  timelineElement.querySelector("p").textContent = description;
+  timelineElementsDataArray.push({
+    title: title,
+    date: date,
+    description: description,
+  });
+};
+
 const timelineElementCreator = (title, date, description) => {
   const timelineElement = timeline.firstElementChild.cloneNode(true);
   timelineElement.querySelector("h1").textContent = title;
   timelineElement.querySelector("h4").textContent = date;
   timelineElement.querySelector("p").textContent = description;
   timeline.append(timelineElement);
+  timelineElementsDataArray.push({
+    title: title,
+    date: date,
+    description: description,
+  });
 };
 
 submitTimlineElementButton.addEventListener("click", () => {
@@ -263,7 +300,6 @@ submitTimlineElementButton.addEventListener("click", () => {
 //fill in event info
 
 const closeModalBtn = document.querySelector(".close-modal-button");
-
 
 // open modal handler
 
@@ -298,3 +334,5 @@ closeModalBtn.addEventListener("click", () => {
     opacity: 0,
   });
 });
+
+//Create first timeline element with name and date of birth of an User
