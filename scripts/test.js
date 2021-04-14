@@ -13,14 +13,14 @@ const newElementDescriptionInput = document.querySelector(
   ".event-description-input"
 );
 
-const timelineElementsDataArray = []
+const timelineElementsDataArray = [];
 
 const createFirstTimelineElement = (title, date, description) => {
   const timelineElement = timeline.firstElementChild;
   timelineElement.querySelector("h1").textContent = title;
   timelineElement.querySelector("h4").textContent = date;
   timelineElement.querySelector("p").textContent = description;
-}
+};
 
 const timelineElementCreator = (title, date, description) => {
   const timelineElement = timeline.firstElementChild.cloneNode(true);
@@ -28,11 +28,11 @@ const timelineElementCreator = (title, date, description) => {
   timelineElement.querySelector("h4").textContent = date;
   timelineElement.querySelector("p").textContent = description;
   timeline.append(timelineElement);
-  timelineElementsDataArray.push(({
+  timelineElementsDataArray.push({
     title: title,
     date: date,
-    description: description
-  }))
+    description: description,
+  });
 };
 
 const sortTimelineElements = () => {
@@ -46,16 +46,22 @@ const sortTimelineElements = () => {
     switching = false;
     b = list.getElementsByTagName("LI");
     // Loop through all list-items:
-    for (i = 0; i < (b.length - 1); i++) {
+    for (i = 0; i < b.length - 1; i++) {
       // start by saying there should be no switching:
       shouldSwitch = false;
       /* check if the next item should
       switch place with the current item: */
-      
-      console.log(b[i].querySelector('h4').textContent.substring(0,4) + b[i].querySelector('h4').textContent.substring(5,7) + b[i].querySelector('h4').textContent.substring(8,10))
-      
-      if (Number(b[i].querySelector('h4').textContent) > Number(b[i + 1].querySelector('h4').textContent)) {
-        
+
+      console.log(
+        b[i].querySelector("h4").textContent.substring(0, 4) +
+          b[i].querySelector("h4").textContent.substring(5, 7) +
+          b[i].querySelector("h4").textContent.substring(8, 10)
+      );
+
+      if (
+        Number(b[i].querySelector("h4").textContent) >
+        Number(b[i + 1].querySelector("h4").textContent)
+      ) {
         /* if next item is numerically
         lower than current item, mark as a switch
         and break the loop: */
@@ -70,7 +76,7 @@ const sortTimelineElements = () => {
       switching = true;
     }
   }
-}
+};
 
 submitTimlineElementButton.addEventListener("click", () => {
   timelineElementCreator(
@@ -90,14 +96,13 @@ submitTimlineElementButton.addEventListener("click", () => {
     ease: "none",
     opacity: 0,
   });
-  sortTimelineElements()
-  console.log(timelineElementsDataArray)
+  sortTimelineElements();
+  console.log(timelineElementsDataArray);
 });
 
 //fill in event info
 
 const closeModalBtn = document.querySelector(".close-modal-button");
-
 
 // open modal handler
 
@@ -114,9 +119,7 @@ createTimelineElementButton.addEventListener("click", () => {
     ease: "none",
     opacity: 1,
   });
-
 });
-
 
 // close modal hanlder
 
@@ -135,5 +138,52 @@ closeModalBtn.addEventListener("click", () => {
   });
 });
 
-createFirstTimelineElement('Adam', 2000, 'Urodziłem się i co teraz?')
+async function sendHttpRequest(method, url, data) {
+  try {
+    const response = await fetch(url, {
+      method: method,
+      body: data,
+    });
+    if (response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      return response.json().then((errData) => {
+        console.log(errData);
+        throw new Error("Something went wrong - server-side");
+      });
+    }
+  } catch (error) {
+    console.log(errData);
+    throw new Error("Something went wrong!");
+  }
+}
 
+
+async function fetchPresidents() {
+  try {
+    const presidents = [];
+    const responseData = await sendHttpRequest(
+      "GET",
+      "https://mysafeinfo.com/api/data?list=presidents&format=json"
+    );
+
+    for (let post of responseData) {
+      presidents.push(post);
+    }
+    for (president of presidents) {
+      timelineElementCreator(
+        president.FullName,
+        president.Terms,
+        `${president.FullName} was eleceted in ${president.Terms.substring(
+          0,
+          4
+        )} as a ${president.President} president of the United States.`
+      );
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+
+fetchPresidents()
