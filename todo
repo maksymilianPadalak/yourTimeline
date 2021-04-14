@@ -1,0 +1,3 @@
+- usuwanie treści po kliknięciu w formularz dodawania elementu timelinea
+- validacja daty
+- pierwszy element powinien się podświetlać od razu po załadowaniu, a robi to dopiero po otworzeniu formularza dodania elementu timelinea
