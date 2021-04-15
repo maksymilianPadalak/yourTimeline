@@ -153,7 +153,7 @@ async function sendHttpRequest(method, url, headers, data) {
   }
 }
 
-async function fetchPresidents() {
+async function createNBATimeline() {
   try {
     for (let i = 1; i <= 30; i++) {
       const responseData = await sendHttpRequest(
@@ -184,4 +184,4 @@ async function fetchPresidents() {
   }
 }
 
-fetchPresidents();
+createNBATimeline();

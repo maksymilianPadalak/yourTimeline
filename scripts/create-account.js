@@ -2,6 +2,9 @@
 
 const startScreen = document.querySelector(".start-screen-wrapper");
 const startBtn = document.querySelector(".start-btn");
+const createOrShowExemplary = document.querySelector(
+  ".create-or-show-example-wrapper"
+);
 const accountInfo = document.querySelector(".create-account-wrapper");
 
 const words = ["your memories", "your history", "Your Timeline"];
@@ -34,8 +37,114 @@ gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 
 startBtn.addEventListener("click", () => {
   gsap.to(startScreen, { duration: 1, ease: "none", y: -700, display: "none" });
-  gsap.to(accountInfo, { duration: 1, display: "flex", opacity: 1, delay: 1 });
+  gsap.to(createOrShowExemplary, {
+    duration: 1,
+    display: "flex",
+    ease: "none",
+    opacity: 1,
+    delay: 1,
+  });
 });
+
+//CHOICE BETWEEN CREATE ACCOUNT OR SHOW EXEMPLARY NBA TIMELINE
+
+const newAccountBtn = document.querySelector(".new-account-btn");
+const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
+
+async function sendHttpRequest(method, url, headers, data) {
+  try {
+    const response = await fetch(url, {
+      method: method,
+      headers: headers,
+      body: data,
+    });
+    if (response.status >= 200 && response.status < 300) {
+      return response.json();
+    } else {
+      return response.json().then((errData) => {
+        console.log(errData);
+        throw new Error("Something went wrong - server-side");
+      });
+    }
+  } catch (error) {
+    console.log(errData);
+    throw new Error("Something went wrong!");
+  }
+}
+
+async function createNBATimeline() {
+  try {
+    for (let i = 1; i <= 30; i++) {
+      const responseData = await sendHttpRequest(
+        "GET",
+        `https://free-nba.p.rapidapi.com/games/${i}`,
+        {
+          "x-rapidapi-key":
+            "1025f1cd61msh0f812df9d32f1b7p17ee61jsn13bb88e9e271",
+          "x-rapidapi-host": "free-nba.p.rapidapi.com",
+        }
+      );
+
+      //there are no draws in NBA. so there are only 2 cases
+      const winnerTeam =
+        +responseData.home_team_score > +responseData.visitor_team_score
+          ? responseData.home_team.name
+          : responseData.visitor_team.name;
+      timelineElementCreator(
+        responseData.home_team.name + " vs " + responseData.visitor_team.name,
+        responseData.date.substring(0, 10),
+        `Game won by ${winnerTeam}. Final score was ${+responseData.home_team_score} : ${+responseData.visitor_team_score}. Great game held in ${
+          responseData.home_team.city
+        }. That's why we love NBA so much!`
+      );
+    }
+  } catch (error) {
+    console.log(error.message);
+  }
+}
+
+newAccountBtn.addEventListener("click", () => {
+  gsap.to(createOrShowExemplary, {
+    duration: 1,
+    display: "none",
+    opacity: 0,
+  });
+  gsap.to(accountInfo, {
+    duration: 1,
+    display: "flex",
+    opacity: 1,
+    delay: 1,
+  });
+});
+
+showExemplaryBtn.addEventListener("click", () => {
+  gsap.to(createOrShowExemplary, {
+    duration: 1,
+    display: "none",
+    opacity: 0,
+  });
+
+  //due to style issue start and login background must be deactivated before showing any timeline
+
+  gsap.to(".start-login-wrapper", {
+    duration: 0,
+    display: "none",
+    ease: "none",
+    opacity: 0,
+  });
+
+  gsap.to(".timeline-window-wrapper", {
+    duration: 1,
+    display: "block",
+    opacity: 1,
+    delay: 1,
+  });
+
+  createNBATimeline()
+  
+});
+
+
 
 //CREATE ACCOUNT SCREEN
 
@@ -207,18 +316,23 @@ loginBtn.addEventListener("click", () => {
         opacity: 0,
         display: "none",
       });
-      gsap.to(".timeline-window-wrapper", {
-        duration: 1,
-        ease: "none",
-        opacity: 1,
-        display: "block",
-      });
+
+      //due to style issue start and login background must be deactivated before showing any timeline
+
       gsap.to(".start-login-wrapper", {
         duration: 0,
         display: "none",
         ease: "none",
         opacity: 0,
       });
+
+      gsap.to(".timeline-window-wrapper", {
+        duration: 1,
+        ease: "none",
+        opacity: 1,
+        display: "block",
+      });
+
       loginValidationText.textContent = "All good! :)";
       loginValidationText.style.color = "green";
 
@@ -287,16 +401,18 @@ const sortTimelineElements = () => {
     switching = false;
     b = list.getElementsByTagName("LI");
     // Loop through all list-items:
-    for (i = 0; i < (b.length - 1); i++) {
+    for (i = 0; i < b.length - 1; i++) {
       // start by saying there should be no switching:
       shouldSwitch = false;
       /* check if the next item should
       switch place with the current item: */
-      
-      console.log(b[i].querySelector('h4').textContent)
-      
-      if (Date.parse(b[i].querySelector('h4').textContent) > Date.parse(b[i + 1].querySelector('h4').textContent)) {
-        
+
+      console.log(b[i].querySelector("h4").textContent);
+
+      if (
+        Date.parse(b[i].querySelector("h4").textContent) >
+        Date.parse(b[i + 1].querySelector("h4").textContent)
+      ) {
         /* if next item is numerically
         lower than current item, mark as a switch
         and break the loop: */
@@ -311,7 +427,7 @@ const sortTimelineElements = () => {
       switching = true;
     }
   }
-}
+};
 
 submitTimlineElementButton.addEventListener("click", () => {
   timelineElementCreator(
@@ -331,8 +447,8 @@ submitTimlineElementButton.addEventListener("click", () => {
     ease: "none",
     opacity: 0,
   });
-  sortTimelineElements()
-  console.log(timelineElementsDataArray)
+  sortTimelineElements();
+  console.log(timelineElementsDataArray);
 });
 
 //fill in event info

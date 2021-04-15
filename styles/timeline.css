@@ -6,14 +6,6 @@
   font-family: "New Tegomin", serif;
 }
 
-.start-login-wrapper {
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-  background: #00050a;
-  color: #eeeeee;
-}
-
 body {
   background: #00050a;
 }
@@ -23,6 +15,14 @@ button:hover {
   box-shadow: 0 15px 35px rgba(196, 218, 197, 0.15);
 }
 /* START SCREEN */
+
+.start-login-wrapper {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  background: #00050a;
+  color: #eeeeee;
+}
 
 .start-screen-wrapper h1 {
   position: relative;
@@ -45,10 +45,9 @@ h1 .hi {
   background-color: #00050a;
   border: 0.3vh solid white;
   color: white;
-  height: 12vh;
+  height: 8vh;
   width: 50vw;
-  font-family: "New Tegomin", serif;
-  font-size: 4vh;
+  font-size: 3vh;
   font-weight: bold;
   opacity: 0;
 }
@@ -57,6 +56,35 @@ h1 .hi {
   margin-top: 10vh;
   margin-left: 27vw;
 }
+
+/* CHOICE BETWEEN CREATE ACCOUNT OR SHOW EXEMPLARY NBA TIMELINE */
+
+.create-or-show-example-wrapper{
+  display: none;
+  width: 100%;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  opacity: 0;
+}
+
+.create-or-show-example-wrapper button{
+  background-color: #00050a;
+  border: 0.3vh solid white;
+  color: white;
+  height: 8vh;
+  width: 50vw;
+  max-width: 500px;
+  font-family: "New Tegomin", serif;
+  font-size: 1.8vh;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.create-or-show-example-wrapper button:hover{
+background-color: rgb(78, 161, 103);
+}
+
 
 /* CREATE ACCOUNT */
 
@@ -172,8 +200,8 @@ h1 .hi {
 /* timeline */
 
 .timeline-window-wrapper {
-  display: block;
-  opacity: 1;
+  display: none;
+  opacity: 0;
   grid-template-rows: 10vh 1fr;
   background-color: #00050a;
 }
