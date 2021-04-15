@@ -191,8 +191,7 @@ loginBtn.addEventListener("click", () => {
       loginValidationText.textContent = "Incorrect password! :(";
       loginValidationText.style.color = "red";
     } else {
-      //function that sets user as logged user
-
+      //loop that sets user as logged user
       for (user of accounts) {
         if (user.username === loginUsername.value.trim()) {
           logedInUser = user;
@@ -200,7 +199,7 @@ loginBtn.addEventListener("click", () => {
       }
 
       console.log(`Welcome ${logedInUser.username}!`);
-      console.log("You are reaady to log in!");
+      console.log("You are ready to log in!");
       gsap.to(".login-wrapper", {
         duration: 1,
         ease: "none",

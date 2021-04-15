@@ -46,22 +46,16 @@ const sortTimelineElements = () => {
     switching = false;
     b = list.getElementsByTagName("LI");
     // Loop through all list-items:
-    for (i = 0; i < b.length - 1; i++) {
+    for (i = 0; i < (b.length - 1); i++) {
       // start by saying there should be no switching:
       shouldSwitch = false;
       /* check if the next item should
       switch place with the current item: */
-
-      console.log(
-        b[i].querySelector("h4").textContent.substring(0, 4) +
-          b[i].querySelector("h4").textContent.substring(5, 7) +
-          b[i].querySelector("h4").textContent.substring(8, 10)
-      );
-
-      if (
-        Number(b[i].querySelector("h4").textContent) >
-        Number(b[i + 1].querySelector("h4").textContent)
-      ) {
+      
+      console.log(b[i].querySelector('h4').textContent)
+      
+      if (Date.parse(b[i].querySelector('h4').textContent) > Date.parse(b[i + 1].querySelector('h4').textContent)) {
+        
         /* if next item is numerically
         lower than current item, mark as a switch
         and break the loop: */
@@ -76,7 +70,7 @@ const sortTimelineElements = () => {
       switching = true;
     }
   }
-};
+}
 
 submitTimlineElementButton.addEventListener("click", () => {
   timelineElementCreator(
@@ -138,10 +132,11 @@ closeModalBtn.addEventListener("click", () => {
   });
 });
 
-async function sendHttpRequest(method, url, data) {
+async function sendHttpRequest(method, url, headers, data) {
   try {
     const response = await fetch(url, {
       method: method,
+      headers: headers,
       body: data,
     });
     if (response.status >= 200 && response.status < 300) {
@@ -158,26 +153,30 @@ async function sendHttpRequest(method, url, data) {
   }
 }
 
-
 async function fetchPresidents() {
   try {
-    const presidents = [];
-    const responseData = await sendHttpRequest(
-      "GET",
-      "https://mysafeinfo.com/api/data?list=presidents&format=json"
-    );
+    for (let i = 1; i <= 30; i++) {
+      const responseData = await sendHttpRequest(
+        "GET",
+        `https://free-nba.p.rapidapi.com/games/${i}`,
+        {
+          "x-rapidapi-key":
+            "1025f1cd61msh0f812df9d32f1b7p17ee61jsn13bb88e9e271",
+          "x-rapidapi-host": "free-nba.p.rapidapi.com",
+        }
+      );
 
-    for (let post of responseData) {
-      presidents.push(post);
-    }
-    for (president of presidents) {
+      //there are no draws in NBA. so there are only 2 cases
+      const winnerTeam =
+        +responseData.home_team_score > +responseData.visitor_team_score
+          ? responseData.home_team.name
+          : responseData.visitor_team.name;
       timelineElementCreator(
-        president.FullName,
-        president.Terms,
-        `${president.FullName} was eleceted in ${president.Terms.substring(
-          0,
-          4
-        )} as a ${president.President} president of the United States.`
+        responseData.home_team.name + " vs " + responseData.visitor_team.name,
+        responseData.date.substring(0, 10),
+        `Game won by ${winnerTeam}. Final score was ${+responseData.home_team_score} : ${+responseData.visitor_team_score}. Great game held in ${
+          responseData.home_team.city
+        }. That's why we love NBA so much!`
       );
     }
   } catch (error) {
@@ -185,5 +184,4 @@ async function fetchPresidents() {
   }
 }
 
-
-fetchPresidents()
+fetchPresidents();
