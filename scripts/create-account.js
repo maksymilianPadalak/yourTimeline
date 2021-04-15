@@ -90,13 +90,24 @@ async function createNBATimeline() {
         +responseData.home_team_score > +responseData.visitor_team_score
           ? responseData.home_team.name
           : responseData.visitor_team.name;
-      timelineElementCreator(
-        responseData.home_team.name + " vs " + responseData.visitor_team.name,
-        responseData.date.substring(0, 10),
-        `Game won by ${winnerTeam}. Final score was ${+responseData.home_team_score} : ${+responseData.visitor_team_score}. Great game held in ${
-          responseData.home_team.city
-        }. That's why we love NBA so much!`
-      );
+
+      if (i === 1) {
+        createFirstTimelineElement(
+          responseData.home_team.name + " vs " + responseData.visitor_team.name,
+          responseData.date.substring(0, 10),
+          `Game won by ${winnerTeam}. Final score was ${+responseData.home_team_score} : ${+responseData.visitor_team_score}. Great game held in ${
+            responseData.home_team.city
+          }. That's why we love NBA so much!`
+        );
+      } else {
+        timelineElementCreator(
+          responseData.home_team.name + " vs " + responseData.visitor_team.name,
+          responseData.date.substring(0, 10),
+          `Game won by ${winnerTeam}. Final score was ${+responseData.home_team_score} : ${+responseData.visitor_team_score}. Great game held in ${
+            responseData.home_team.city
+          }. That's why we love NBA so much!`
+        );
+      }
     }
   } catch (error) {
     console.log(error.message);
@@ -121,6 +132,7 @@ showExemplaryBtn.addEventListener("click", () => {
   gsap.to(createOrShowExemplary, {
     duration: 1,
     display: "none",
+    ease: "none",
     opacity: 0,
   });
 
@@ -140,11 +152,8 @@ showExemplaryBtn.addEventListener("click", () => {
     delay: 1,
   });
 
-  createNBATimeline()
-  
+  createNBATimeline();
 });
-
-
 
 //CREATE ACCOUNT SCREEN
 
