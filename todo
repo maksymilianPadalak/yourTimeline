@@ -1,3 +1,13 @@
 - usuwanie treści po kliknięciu w formularz dodawania elementu timelinea
 - validacja daty
 - pierwszy element powinien się podświetlać od razu po załadowaniu, a robi to dopiero po otworzeniu formularza dodania elementu timelinea
+- dodać guziki do cofania się do poprzedniej strony
+- clean up code! add comments!
+
+
+
+Podczas tworzenia tej aplikacji nauczyłem się 
+tworzyć animację, 
+walidować dane wprowadzane przez usera, 
+optywalizować aplikację webową na wszelkie urządzenia,
+fetchowania danych z zewnętrznych API 

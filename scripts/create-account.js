@@ -346,14 +346,13 @@ loginBtn.addEventListener("click", () => {
       loginValidationText.style.color = "green";
 
       //function createfirstTimelineElement is created later, to make every variable origin clear!
-
-      createFirstTimelineElement(
-        `The day ${logedInUser.name} was born!`,
-        logedInUser.dateOfBirth,
-        `What a year that was! It couldn't be differente, because on this day ${logedInUser.name} was born!`
-      );
     }
   }
+  createFirstTimelineElement(
+    `The day ${logedInUser.name} was born!`,
+    logedInUser.dateOfBirth,
+    `What a year that was! It couldn't be differente, because on this day ${logedInUser.name} was born!`
+  );
 });
 
 //Timeline screen
@@ -415,8 +414,6 @@ const sortTimelineElements = () => {
       shouldSwitch = false;
       /* check if the next item should
       switch place with the current item: */
-
-      console.log(b[i].querySelector("h4").textContent);
 
       if (
         Date.parse(b[i].querySelector("h4").textContent) >
