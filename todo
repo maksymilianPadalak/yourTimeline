@@ -2,6 +2,7 @@
 - validacja daty
 - pierwszy element powinien się podświetlać od razu po załadowaniu, a robi to dopiero po otworzeniu formularza dodania elementu timelinea
 - dodać guziki do cofania się do poprzedniej strony
+- ustawianie zawęrzenia, tak aby wyświetlały się tylko dane z konkretnego okresu
 - clean up code! add comments!
 
 

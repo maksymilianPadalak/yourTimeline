@@ -158,6 +158,7 @@ showExemplaryBtn.addEventListener("click", () => {
 //CREATE ACCOUNT SCREEN
 
 const crateAccountBtn = document.querySelector(".create-account-btn");
+const goBackFromCreateAccoutBtn = document.querySelector(".go-back-from-create-account-button")
 const nameInput = document.querySelector(".name-input");
 const usernameInput = document.querySelector(".username-input");
 const birthInput = document.querySelector(".birth-input");
@@ -244,6 +245,23 @@ const nameAndUsernameValidation = () => {
 
 const accounts = [];
 let usernamesArray = [];
+
+goBackFromCreateAccoutBtn.addEventListener('click', () => {
+  gsap.to(".create-account-wrapper", {
+    duration: 1,
+    ease: "none",
+    y: -700,
+    opacity: 0,
+    display: "none",
+  });
+  gsap.to(createOrShowExemplary, {
+    duration: 1,
+    ease: "none",
+    display: "flex",
+    opacity: 1,
+    delay: 1,
+  });
+})
 
 crateAccountBtn.addEventListener("click", () => {
   if (nameAndUsernameValidation() && passwordValidation()) {
@@ -397,6 +415,8 @@ const timelineElementCreator = (title, date, description) => {
     description: description,
   });
 };
+
+//sorts Timeline Elements in order accoring to date
 
 const sortTimelineElements = () => {
   var list, i, switching, b, shouldSwitch;
