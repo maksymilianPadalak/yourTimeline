@@ -250,7 +250,6 @@ goBackFromCreateAccoutBtn.addEventListener('click', () => {
   gsap.to(".create-account-wrapper", {
     duration: 1,
     ease: "none",
-    y: -700,
     opacity: 0,
     display: "none",
   });
