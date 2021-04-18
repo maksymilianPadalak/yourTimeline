@@ -51,6 +51,22 @@ startBtn.addEventListener("click", () => {
 const newAccountBtn = document.querySelector(".new-account-btn");
 const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
 
+newAccountBtn.addEventListener("click", () => {
+  gsap.to(createOrShowExemplary, {
+    duration: 1,
+    display: "none",
+    opacity: 0,
+  });
+  gsap.to(accountInfo, {
+    duration: 1,
+    display: "flex",
+    opacity: 1,
+    delay: 1,
+  });
+});
+
+//Creation and navigation in exemplary NBA TIMELINE
+
 async function sendHttpRequest(method, url, headers, data) {
   try {
     const response = await fetch(url, {
@@ -114,20 +130,6 @@ async function createNBATimeline() {
   }
 }
 
-newAccountBtn.addEventListener("click", () => {
-  gsap.to(createOrShowExemplary, {
-    duration: 1,
-    display: "none",
-    opacity: 0,
-  });
-  gsap.to(accountInfo, {
-    duration: 1,
-    display: "flex",
-    opacity: 1,
-    delay: 1,
-  });
-});
-
 showExemplaryBtn.addEventListener("click", () => {
   gsap.to(createOrShowExemplary, {
     duration: 1,
@@ -153,6 +155,31 @@ showExemplaryBtn.addEventListener("click", () => {
   });
 
   createNBATimeline();
+});
+
+const createAccountFromExemplaryTimelineBtn = document.querySelector(
+  ".create-account-from-exemplary-timeline-btn"
+);
+
+createAccountFromExemplaryTimelineBtn.addEventListener("click", () => {
+  gsap.to(".timeline-window-wrapper", {
+    duration: 1,
+    display: "none",
+    opacity: 0,
+    delay: 0.3,
+  });
+  gsap.to(accountInfo, {
+    duration: 1,
+    display: "flex",
+    opacity: 1,
+    delay: 1,
+  });
+  gsap.to(".start-login-wrapper", {
+    duration: 0,
+    display: "flex",
+    ease: "none",
+    opacity: 1,
+  });
 });
 
 //CREATE ACCOUNT SCREEN
@@ -245,7 +272,6 @@ const nameAndUsernameValidation = () => {
   }
 };
 
-
 goBackFromCreateAccoutBtn.addEventListener("click", () => {
   gsap.to(".create-account-wrapper", {
     duration: 1,
@@ -268,6 +294,7 @@ let usernamesArray = [];
 
 crateAccountBtn.addEventListener("click", () => {
   if (nameAndUsernameValidation() && passwordValidation()) {
+    clearTimeline()
     validationInfo.textContent = "All good! :)";
     validationInfo.style.color = "green";
     accounts.push(
@@ -295,12 +322,12 @@ crateAccountBtn.addEventListener("click", () => {
 
     //There is cuurently no way to go back, when you are alredy logged in. Log out function will be added soon!
 
-    gsap.to(goBackFromTimelineBtn, {
+    gsap.to(createAccountFromExemplaryTimelineBtn, {
       duration: 1,
       ease: "none",
       display: "none",
       opacity: 0,
-    })
+    });
   } else {
     return;
   }
@@ -372,8 +399,6 @@ loginBtn.addEventListener("click", () => {
         display: "block",
       });
 
-
-
       loginValidationText.textContent = "All good! :)";
       loginValidationText.style.color = "green";
     }
@@ -389,7 +414,6 @@ loginBtn.addEventListener("click", () => {
 
 //Timeline screen
 const timeline = document.querySelector(".timeline-list");
-const goBackFromTimelineBtn = document.querySelector(".go-back-from-timeline-button")
 
 const createTimelineElementButton = document.querySelector(
   ".create-timeline-element-btn"
@@ -469,6 +493,12 @@ const sortTimelineElements = () => {
     }
   }
 };
+
+const clearTimeline = () => {
+  const limit = timeline.childElementCount -1
+  for (let i = 0; i < limit; i++)
+  timeline.firstElementChild.remove()
+}
 
 submitTimlineElementButton.addEventListener("click", () => {
   timelineElementCreator(

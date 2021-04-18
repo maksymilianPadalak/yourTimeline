@@ -240,14 +240,14 @@ background-color: rgb(78, 161, 103);
   max-width: 400px;
 }
 
-.go-back-from-exemplary-button{
+.create-account-from-exemplary-timeline-btn{
   margin-top: 1vh;
   background-color: #00050a;
   border: 0.3vh solid white;
   color: white;
   height: 6vh;
   width: 50vw;
-  font-size: 3vh;
+  font-size: 1.8vh;
   font-weight: bold;
   max-width: 400px;
 }
