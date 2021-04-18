@@ -294,7 +294,7 @@ let usernamesArray = [];
 
 crateAccountBtn.addEventListener("click", () => {
   if (nameAndUsernameValidation() && passwordValidation()) {
-    clearTimeline()
+    clearTimeline();
     validationInfo.textContent = "All good! :)";
     validationInfo.style.color = "green";
     accounts.push(
@@ -493,12 +493,16 @@ const sortTimelineElements = () => {
     }
   }
 };
+const clearModalInputs = () => {
+  newElementTitleInput.value = '',
+  newElementDateInput.value = '',
+  newElementDescriptionInput.value = '';
+};
 
 const clearTimeline = () => {
-  const limit = timeline.childElementCount -1
-  for (let i = 0; i < limit; i++)
-  timeline.firstElementChild.remove()
-}
+  const limit = timeline.childElementCount - 1;
+  for (let i = 0; i < limit; i++) timeline.firstElementChild.remove();
+};
 
 submitTimlineElementButton.addEventListener("click", () => {
   timelineElementCreator(
@@ -506,6 +510,7 @@ submitTimlineElementButton.addEventListener("click", () => {
     newElementDateInput.value,
     newElementDescriptionInput.value
   );
+  clearModalInputs();
   gsap.to(".modal-wrapper", {
     duration: 0.5,
     display: "none",
