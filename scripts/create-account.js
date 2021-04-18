@@ -158,7 +158,9 @@ showExemplaryBtn.addEventListener("click", () => {
 //CREATE ACCOUNT SCREEN
 
 const crateAccountBtn = document.querySelector(".create-account-btn");
-const goBackFromCreateAccoutBtn = document.querySelector(".go-back-from-create-account-button")
+const goBackFromCreateAccoutBtn = document.querySelector(
+  ".go-back-from-create-account-button"
+);
 const nameInput = document.querySelector(".name-input");
 const usernameInput = document.querySelector(".username-input");
 const birthInput = document.querySelector(".birth-input");
@@ -243,10 +245,8 @@ const nameAndUsernameValidation = () => {
   }
 };
 
-const accounts = [];
-let usernamesArray = [];
 
-goBackFromCreateAccoutBtn.addEventListener('click', () => {
+goBackFromCreateAccoutBtn.addEventListener("click", () => {
   gsap.to(".create-account-wrapper", {
     duration: 1,
     ease: "none",
@@ -260,7 +260,11 @@ goBackFromCreateAccoutBtn.addEventListener('click', () => {
     opacity: 1,
     delay: 1,
   });
-})
+});
+
+//global variables used to handle users data, and current user that is looged in
+const accounts = [];
+let usernamesArray = [];
 
 crateAccountBtn.addEventListener("click", () => {
   if (nameAndUsernameValidation() && passwordValidation()) {
@@ -288,6 +292,15 @@ crateAccountBtn.addEventListener("click", () => {
       opacity: 1,
       delay: 1,
     });
+
+    //There is cuurently no way to go back, when you are alredy logged in. Log out function will be added soon!
+
+    gsap.to(goBackFromTimelineBtn, {
+      duration: 1,
+      ease: "none",
+      display: "none",
+      opacity: 0,
+    })
   } else {
     return;
   }
@@ -359,12 +372,14 @@ loginBtn.addEventListener("click", () => {
         display: "block",
       });
 
+
+
       loginValidationText.textContent = "All good! :)";
       loginValidationText.style.color = "green";
-
-      //function createfirstTimelineElement is created later, to make every variable origin clear!
     }
   }
+  //Create first timeline element with name and date of birth of an User
+  //function createfirstTimelineElement is created later, to make every variable origin clear!
   createFirstTimelineElement(
     `The day ${logedInUser.name} was born!`,
     logedInUser.dateOfBirth,
@@ -374,6 +389,7 @@ loginBtn.addEventListener("click", () => {
 
 //Timeline screen
 const timeline = document.querySelector(".timeline-list");
+const goBackFromTimelineBtn = document.querySelector(".go-back-from-timeline-button")
 
 const createTimelineElementButton = document.querySelector(
   ".create-timeline-element-btn"
@@ -513,5 +529,3 @@ closeModalBtn.addEventListener("click", () => {
     opacity: 0,
   });
 });
-
-//Create first timeline element with name and date of birth of an User
