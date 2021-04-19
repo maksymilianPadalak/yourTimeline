@@ -4,8 +4,10 @@
 
 const startScreen = document.querySelector(".start-screen-wrapper");
 const startBtn = document.querySelector(".start-btn");
-const accountInfo = document.querySelector(".create-account-wrapper");
 
+//animation with words visible at the start
+//learned in this tutorial: https://www.youtube.com/watch?v=ZT66N5hBiCE&ab_channel=codeSTACKr
+//modified to work well in Your Timeline project
 const words = ["your memories", "your history", "Your Timeline"];
 const cursor = gsap.to(".cursor", {
   opacity: 0,
@@ -32,11 +34,16 @@ words.forEach((word) => {
   masterTl.add(tl);
 });
 
+//animation that shows start button after 10 seconds, after 'Your Timeline' is displayed
 gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 
+
+//this is next view, that startBtn will take us to, where we can choose between options: crate account (start your timeline journey) or show exemplary NBA timeline
 const createOrShowExemplary = document.querySelector(
   ".create-or-show-example-wrapper"
-); //this is next view, that startBtn will take us to
+);
+
+
 
 startBtn.addEventListener("click", () => {
   gsap.to(startScreen, { duration: 1, ease: "none", y: -700, display: "none" });
@@ -54,6 +61,10 @@ startBtn.addEventListener("click", () => {
 
 const newAccountBtn = document.querySelector(".new-account-btn");
 const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
+
+
+//view that lets user create new account
+const accountInfo = document.querySelector(".create-account-wrapper");
 
 //If you choose to start Your Timeline journey, you will be taken to accountInfo view (by clilcking start Your Timeline journey Btn), which lets you create new accout
 
