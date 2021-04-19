@@ -386,6 +386,7 @@ background-color: rgb(78, 161, 103);
 /* MODAL */
 
 .modal-wrapper {
+  display: none;
   position: fixed;
   top: 50%;
   left: 50%;
