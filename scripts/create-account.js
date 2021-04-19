@@ -91,13 +91,27 @@ async function sendHttpRequest(method, url, headers, data) {
 async function createNBATimeline() {
   try {
     for (let i = 1; i <= 30; i++) {
+
+      const loadingPercent = document.getElementById('loading-percent')
+
+      gsap.to(".loading-screen-wrapper", {
+        duration: 1,
+        display: "flex",
+        opacity: 1,
+        delay: 0.3
+      });
+
+      loadingPercent.textContent = `${Math.floor(i/30*100)}%`
+
+
+      
       const responseData = await sendHttpRequest(
         "GET",
         `https://free-nba.p.rapidapi.com/games/${i}`,
         {
           "x-rapidapi-key":
             "1025f1cd61msh0f812df9d32f1b7p17ee61jsn13bb88e9e271",
-          "x-rapidapi-host": "free-nba.p.rapidapi.com",
+          "x-rapidapi-host": "free-nba.p.rapidapi.com", //That is my key, I don't want every user to generate a new one, it's just to simulate working with database
         }
       );
 
@@ -106,6 +120,8 @@ async function createNBATimeline() {
         +responseData.home_team_score > +responseData.visitor_team_score
           ? responseData.home_team.name
           : responseData.visitor_team.name;
+
+      
 
       if (i === 1) {
         createFirstTimelineElement(
@@ -125,12 +141,26 @@ async function createNBATimeline() {
         );
       }
     }
+
+    gsap.to(".loading-screen-wrapper", {
+      duration: 1,
+      display: "none",
+      opacity: 0,
+    });
+    gsap.to(".timeline-window-wrapper", {
+      duration: 1,
+      display: "block",
+      opacity: 1,
+      delay: 1,
+    });
+
   } catch (error) {
     console.log(error.message);
   }
 }
 
 showExemplaryBtn.addEventListener("click", () => {
+  clearTimeline()
   gsap.to(createOrShowExemplary, {
     duration: 1,
     display: "none",
@@ -145,13 +175,6 @@ showExemplaryBtn.addEventListener("click", () => {
     display: "none",
     ease: "none",
     opacity: 0,
-  });
-
-  gsap.to(".timeline-window-wrapper", {
-    duration: 1,
-    display: "block",
-    opacity: 1,
-    delay: 1,
   });
 
   createNBATimeline();
@@ -443,7 +466,7 @@ const newElementDescriptionInput = document.querySelector(
   ".event-description-input"
 );
 
-const timelineElementsDataArray = [];
+let timelineElementsDataArray = [];
 
 const createFirstTimelineElement = (title, date, description) => {
   const timelineElement = timeline.firstElementChild;
@@ -508,6 +531,7 @@ const sortTimelineElements = () => {
     }
   }
 };
+
 const clearModalInputs = () => {
   (newElementTitleInput.value = ""),
     (newElementDateInput.value = ""),
@@ -517,6 +541,7 @@ const clearModalInputs = () => {
 const clearTimeline = () => {
   const limit = timeline.childElementCount - 1;
   for (let i = 0; i < limit; i++) timeline.firstElementChild.remove();
+  timelineElementsDataArray = []
 };
 
 submitTimlineElementButton.addEventListener("click", () => {
@@ -561,6 +586,7 @@ createTimelineElementButton.addEventListener("click", () => {
     ease: "none",
     opacity: 1,
   });
+  console.log(timelineElementsDataArray)
 });
 
 // close modal hanlder
