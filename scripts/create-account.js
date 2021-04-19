@@ -272,6 +272,20 @@ const nameAndUsernameValidation = () => {
   }
 };
 
+const dateValidation = () => {
+  if (
+    Date.parse(birthInput.value) > new Date() || //new Date () return current date! :)
+    Date.parse(birthInput.value) < Date.parse("1900-01-01")
+  ) {
+    validationInfo.textContent =
+      "You are immortal or come from a future ;) Enter valid date of birth!";
+    validationInfo.style.color = "red";
+    return false;
+  } else {
+    return true
+  }
+};
+
 goBackFromCreateAccoutBtn.addEventListener("click", () => {
   gsap.to(".create-account-wrapper", {
     duration: 1,
@@ -293,7 +307,8 @@ const accounts = [];
 let usernamesArray = [];
 
 crateAccountBtn.addEventListener("click", () => {
-  if (nameAndUsernameValidation() && passwordValidation()) {
+  dateValidation();
+  if (nameAndUsernameValidation() && passwordValidation() && dateValidation()) {
     clearTimeline();
     validationInfo.textContent = "All good! :)";
     validationInfo.style.color = "green";
@@ -494,9 +509,9 @@ const sortTimelineElements = () => {
   }
 };
 const clearModalInputs = () => {
-  newElementTitleInput.value = '',
-  newElementDateInput.value = '',
-  newElementDescriptionInput.value = '';
+  (newElementTitleInput.value = ""),
+    (newElementDateInput.value = ""),
+    (newElementDescriptionInput.value = "");
 };
 
 const clearTimeline = () => {

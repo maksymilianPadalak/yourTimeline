@@ -1,9 +1,8 @@
-- usuwanie treści po kliknięciu w formularz dodawania elementu timelinea
-- validacja daty
 - pierwszy element powinien się podświetlać od razu po załadowaniu, a robi to dopiero po otworzeniu formularza dodania elementu timelinea
-- dodać guziki do cofania się do poprzedniej strony
 - ustawianie zawęrzenia, tak aby wyświetlały się tylko dane z konkretnego okresu
+- dodaj funkcję, która czeka na załadowanie się wszystkich fetchowanych elementów ze strony z meczami NBA, bo potem mogą być buggi
 - clean up code! add comments!
+
 
 
 
@@ -13,3 +12,4 @@ tworzyć animację,
 walidować dane wprowadzane przez usera, 
 optywalizować aplikację webową na wszelkie urządzenia,
 fetchowania danych z zewnętrznych API 
+
