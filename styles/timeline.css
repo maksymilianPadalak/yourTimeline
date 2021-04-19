@@ -94,8 +94,10 @@ h1 .hi {
   align-items: center;
   color: white;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
   opacity: 0;
-  margin-top: 22%;
 }
 
 .lds-ellipsis {
@@ -336,7 +338,7 @@ h1 .hi {
   height: auto;
   max-width: 800px;
   position: relative;
-  margin-top: 100px;
+  margin-top: 35px;
   margin-bottom: 100px;
 }
 
@@ -390,6 +392,10 @@ h1 .hi {
 /*responsive web design*/
 
 @media only screen and (min-width: 1020px) {
+  .timeline {
+    margin-bottom: 100px;
+  }
+
   .timeline-content .headline-wrapper h1 {
     font-size: 16px;
     font-weight: 500;
