@@ -59,7 +59,7 @@ h1 .hi {
 
 /* CHOICE BETWEEN CREATE ACCOUNT OR SHOW EXEMPLARY NBA TIMELINE */
 
-.create-or-show-example-wrapper{
+.create-or-show-example-wrapper {
   display: none;
   width: 100%;
   flex-direction: column;
@@ -68,7 +68,7 @@ h1 .hi {
   opacity: 0;
 }
 
-.create-or-show-example-wrapper button{
+.create-or-show-example-wrapper button {
   background-color: #00050a;
   border: 0.3vh solid white;
   color: white;
@@ -81,10 +81,78 @@ h1 .hi {
   margin-top: 20px;
 }
 
-.create-or-show-example-wrapper button:hover{
-background-color: rgb(78, 161, 103);
+.create-or-show-example-wrapper button:hover {
+  background-color: rgb(78, 161, 103);
 }
 
+/* LOADING ANIMATION */
+
+.loading-screen-wrapper {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  align-items: center;
+  opacity: 0;
+  margin-top: 25%;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgb(78, 161, 103);
+  box-shadow: 0 15px 35px rgba(196, 218, 197, 0.15);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
 
 /* CREATE ACCOUNT */
 
@@ -134,7 +202,7 @@ background-color: rgb(78, 161, 103);
   max-width: 800px;
 }
 
-.go-back-from-create-account-button{
+.go-back-from-create-account-button {
   background-color: #00050a;
   border: 0.3vh solid white;
   color: white;
@@ -145,7 +213,7 @@ background-color: rgb(78, 161, 103);
   font-weight: bold;
   margin-top: 2vh;
   max-width: 800px;
-  transform: translateY(150%)
+  transform: translateY(150%);
 }
 
 .validation-info {
@@ -240,7 +308,7 @@ background-color: rgb(78, 161, 103);
   max-width: 400px;
 }
 
-.create-account-from-exemplary-timeline-btn{
+.create-account-from-exemplary-timeline-btn {
   margin-top: 1vh;
   background-color: #00050a;
   border: 0.3vh solid white;
