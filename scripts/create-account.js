@@ -160,6 +160,7 @@ async function createNBATimeline() {
 }
 
 showExemplaryBtn.addEventListener("click", () => {
+  clearTimeline()
   gsap.to(createOrShowExemplary, {
     duration: 1,
     display: "none",
@@ -530,6 +531,7 @@ const sortTimelineElements = () => {
     }
   }
 };
+
 const clearModalInputs = () => {
   (newElementTitleInput.value = ""),
     (newElementDateInput.value = ""),

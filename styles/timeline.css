@@ -50,6 +50,7 @@ h1 .hi {
   font-size: 3vh;
   font-weight: bold;
   opacity: 0;
+  justify-self: center;
 }
 
 .start-button-wrapper {
@@ -94,7 +95,7 @@ h1 .hi {
   color: white;
   align-items: center;
   opacity: 0;
-  margin-top: 25%;
+  margin-top: 22%;
 }
 
 .lds-ellipsis {
