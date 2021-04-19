@@ -365,7 +365,7 @@ h1 .hi {
 /* timeline element title */
 
 .timeline-content .headline-wrapper h1 {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 500;
   line-height: 30px;
   margin-bottom: 10px;
@@ -375,14 +375,14 @@ h1 .hi {
 
 .timeline-content .headline-wrapper h4 {
   margin-top: 0.9vh;
-  font-size: 12px;
+  font-size: 10px;
   margin-right: 10px;
 }
 
 /* timeline-element-description */
 
 .timeline-content p {
-  font-size: 14px;
+  font-size: 11px;
   line-height: 30px;
   font-weight: 300;
 }
@@ -390,6 +390,25 @@ h1 .hi {
 /*responsive web design*/
 
 @media only screen and (min-width: 1020px) {
+  .timeline-content .headline-wrapper h1 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 30px;
+    margin-bottom: 10px;
+  }
+
+  .timeline-content .headline-wrapper h4 {
+    margin-top: 0.9vh;
+    font-size: 12px;
+    margin-right: 10px;
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+    line-height: 30px;
+    font-weight: 300;
+  }
+
   .timeline::before {
     content: "";
     position: absolute;
