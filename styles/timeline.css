@@ -544,6 +544,7 @@ h1 .hi {
   font-size: 3vh;
   font-weight: bold;
   max-width: 400px;
+  margin-bottom: 2%;
 }
 
 .modal-inputs-wrapper {
@@ -557,6 +558,10 @@ h1 .hi {
   border: 1px solid white;
   width: 60vw;
   max-width: 600px;
+}
+
+#modal-inputs-validation{
+  margin-top: 3%;
 }
 
 .event-description-input {
