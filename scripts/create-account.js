@@ -656,6 +656,8 @@ const modalInputsValidation = () => {
       "Fields cannot be empty :(!";
     return false;
   } else {
+    modalValidationText.textContent =
+    "Fill in event info. Title cannot be longer than 35 characters."
     return true;
   }
 };
