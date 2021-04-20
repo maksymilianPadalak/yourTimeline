@@ -6,7 +6,7 @@
 * [Set up](#set-up)
 * [Technologies](#technologies)
 * [What did I learn](#whatDidILearn)
-
+* [Plans for the future](#plans-for-the-future)
 
 ### About
 
@@ -48,3 +48,13 @@ Developing Your Timeline makes me a better programmer every day. In it's current
 - working with API and JSON data
 - creating loading screens
 - designing web applications
+
+### Plans for the future
+
+For me Your Timeline is not just a project created to show at a job interview. I work on it every day.
+
+Next steps:
+- make every timeline element interactive by adding photos, youtube links and spotify playlists that users associate with particular time of their life
+- creating joined timelines with other users
+- creating historic timelines of famous figures
+
