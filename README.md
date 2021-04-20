@@ -26,6 +26,8 @@ Currently Your Timeline has to options:
 1. You can create your account, log in and make your own timeline by adding timeline elements. 
 2. You can view exemplary timeline with data from external API, that shows NBA games history. It uses HTTP requests and creates timeline elements from JSON data, which will be crucial, when Your Timeline will use databse in the future.
 
+Your Timeline is optimized for desktop and mobile experience. It looks great on every popular smartphone and tablet.
+
 ### Technologies
 
 - Java Script
@@ -35,4 +37,14 @@ Currently Your Timeline has to options:
 
 ### What did I learn
 
-While working on this this project I learned
+Developing Your Timeline makes me a better programmer every day. In it's current state this project shows my skills in:
+- working with events in Java Script
+- working with DOM elements
+- creating css animations
+- using Green Sock
+- responsive web design
+- user inupts validation
+- creating single page web applications
+- working with API and JSON data
+- creating loading screens
+- designing web applications
