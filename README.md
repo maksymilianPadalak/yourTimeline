@@ -40,7 +40,7 @@ Your Timeline is optimized for desktop and mobile experience. It looks great on 
 Developing Your Timeline makes me a better programmer every day. In it's current state this project demonstrates my skills in:
 - working with events in Java Script
 - working with DOM elements
-- creating css animations
+- creating CSS animations
 - using Green Sock
 - responsive web design
 - user inupts validation
