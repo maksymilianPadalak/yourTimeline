@@ -15,7 +15,12 @@ The aim of this project is to make an application for creating timelines, Your T
 - Green Sock 
 
 ##### Table of Contents  
+
+[About] (#about)
 [Headers](#headers)  
 [Emphasis](#emphasis)  
 <a name="headers"/>
+
 ## Headers
+
+Witam serdecznie
