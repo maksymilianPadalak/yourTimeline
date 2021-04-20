@@ -18,6 +18,9 @@ The aim of this project is to make an application for creating timelines, Your T
 
 ### Set up
 
+Download ziped folder.
+
+Open timeline.html in your browser.
 
 ### Navigation
 
