@@ -2,8 +2,9 @@
 
 ## Table of contents
 * [About](#about)
+* [Navigation](#navigation)
 * [Technologies](#technologies)
-* [Setup](#setup)
+
 
 ### About
 
@@ -12,6 +13,9 @@ Some time ago I talked to my friend about the time we met when we were kids. A l
 I thought it would be great to have some sort of visual representation all my memories with particular people, where I can come every once in a while to bring back "the good old days". Timeline was an obvious choice.
 
 The aim of this project is to make an application for creating timelines, Your Timelines, which you can share with your friends.
+
+### Set up
+
 
 ### Navigation
 
