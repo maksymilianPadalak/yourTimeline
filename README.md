@@ -56,5 +56,5 @@ For me Your Timeline is not just a project created to show at a job interview. I
 Next steps:
 - make every timeline element interactive by adding photos, youtube links and spotify playlists that users associate with particular time of their life
 - creating joined timelines with other users
-- creating historic timelines of famous figures
+- creating historic timelines for famous figures
 
