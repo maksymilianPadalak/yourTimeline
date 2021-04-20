@@ -5,7 +5,7 @@
 * [Navigation](#navigation)
 * [Set up](#set-up)
 * [Technologies](#technologies)
-* [What did I learn](#whatDidILearn)
+* [What did I learn](#what-did-I-Learn)
 * [Plans for the future](#plans-for-the-future)
 
 ### About
