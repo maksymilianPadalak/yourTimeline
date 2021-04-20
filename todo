@@ -1,12 +1,7 @@
-- pierwszy element powinien się podświetlać od razu po załadowaniu, a robi to dopiero po otworzeniu formularza dodania elementu timelinea
 - ustawianie zawęrzenia, tak aby wyświetlały się tylko dane z konkretnego okresu
-- dodaj funkcję, która czeka na załadowanie się wszystkich fetchowanych elementów ze strony z meczami NBA, bo potem mogą być buggi
-- clean up code! add comments!
 - usuwanie i modyfikowanie timeline elements
-- sprawdzanie czy inputy w modalu nie są puste
+
 - dodaj read me!!!!
-- add enter do kazdego inputa
-- user birth date cannot be empty!
 
 
 
