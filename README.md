@@ -1,3 +1,2 @@
-# Your Timeline
+# Your Timeline ## By Maksymilian Padalak
 
-## By Maksymilian Padalak
