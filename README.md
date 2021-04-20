@@ -37,7 +37,7 @@ Your Timeline is optimized for desktop and mobile experience. It looks great on 
 
 ### What did I learn
 
-Developing Your Timeline makes me a better programmer every day. In it's current state this project shows my skills in:
+Developing Your Timeline makes me a better programmer every day. In it's current state this project demonstrates my skills in:
 - working with events in Java Script
 - working with DOM elements
 - creating css animations
