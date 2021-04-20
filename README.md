@@ -3,7 +3,9 @@
 ## Table of contents
 * [About](#about)
 * [Navigation](#navigation)
+* [Set up](#set up)
 * [Technologies](#technologies)
+* [What did I learn](#whatDidILearn)
 
 
 ### About
@@ -31,6 +33,6 @@ Currently Your Timeline has to options:
 - CSS 
 - Green Sock 
 
-## What did I learn
+### What did I learn
 
 While working on this this project I learned
