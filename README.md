@@ -3,7 +3,7 @@
 ## Table of contents
 * [About](#about)
 * [Navigation](#navigation)
-* [Set up](#set up)
+* [Set up](#set-up)
 * [Technologies](#technologies)
 * [What did I learn](#whatDidILearn)
 
