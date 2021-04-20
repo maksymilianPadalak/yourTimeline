@@ -50,7 +50,7 @@ Developing Your Timeline makes me a better programmer every day. In it's current
 - creating single page web applications
 - working with API and JSON data
 - creating loading screens
-- designing web applications
+- designing the looks of web applications
 
 ### Plans for the future
 
