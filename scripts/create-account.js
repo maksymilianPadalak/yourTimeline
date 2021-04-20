@@ -38,12 +38,10 @@ words.forEach((word) => {
 //animation that shows start button after 10 seconds, after words: 'Your Timeline' are displayed
 gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 
-
 //this is next view, that startBtn will take us to, where we can choose between options: crate account (start your timeline journey) or show exemplary NBA timeline
 const createOrShowExemplary = document.querySelector(
   ".create-or-show-example-wrapper"
 );
-
 
 startBtn.addEventListener("click", () => {
   gsap.to(startScreen, { duration: 1, ease: "none", y: -700, display: "none" });
@@ -56,12 +54,10 @@ startBtn.addEventListener("click", () => {
   });
 });
 
-
 //CHOICE BETWEEN CREATE ACCOUNT OR SHOW EXEMPLARY NBA TIMELINE
 //It is named "createOrShowExemplary"
 const newAccountBtn = document.querySelector(".new-account-btn");
 const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
-
 
 //view that lets user create new account
 const accountInfo = document.querySelector(".create-account-wrapper");
@@ -132,9 +128,8 @@ async function createNBATimeline() {
     //as an example this function loads 30 games, but it can work with any namber of elements
     //as projects grows, this function will we changed, to load data from database and load timelines saved by users
     for (let i = 1; i <= 30; i++) {
-      
       const loadingPercent = document.getElementById("loading-percent"); //fetching progress shown in percent
-    
+
       //loading animation
       gsap.to(".loading-screen-wrapper", {
         duration: 1,
@@ -153,7 +148,7 @@ async function createNBATimeline() {
         {
           "x-rapidapi-key":
             "1025f1cd61msh0f812df9d32f1b7p17ee61jsn13bb88e9e271",
-          "x-rapidapi-host": "free-nba.p.rapidapi.com", //That is my key, I don't want every user to generate a new one, it's just to present working with API and JSON data 
+          "x-rapidapi-host": "free-nba.p.rapidapi.com", //That is my key, I don't want every user to generate a new one, it's just to present working with API and JSON data
         }
       );
 
@@ -235,7 +230,6 @@ createAccountFromExemplaryTimelineBtn.addEventListener("click", () => {
 });
 
 //CREATE ACCOUNT SCREEN
-
 const crateAccountBtn = document.querySelector(".create-account-btn");
 
 const goBackFromCreateAccoutBtn = document.querySelector(
@@ -344,6 +338,11 @@ const dateValidation = () => {
       "You are immortal or come from a future ;) Enter valid date of birth!";
     validationInfo.style.color = "red";
     return false;
+  } else if (birthInput.value === '') {
+    validationInfo.textContent =
+    "Please provide your birth date.";
+    validationInfo.style.color = "red";
+    return false;
   } else {
     return true;
   }
@@ -417,6 +416,27 @@ crateAccountBtn.addEventListener("click", () => {
 
   //adds all usernames to array, that is later udes to check if username exists and if password matches username, when logging in
   usernamesArray = accounts.map((account) => account.username);
+});
+
+//when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+const createAccountInputs = [
+  nameInput,
+  usernameInput,
+  birthInput,
+  passwordInput,
+  confirmPasswordInput,
+]; //list of all inputs in this view
+
+createAccountInputs.forEach((input) => {
+  input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      crateAccountBtn.click();
+    }
+  });
 });
 
 //LOGGING IN SCREEN//
@@ -505,6 +525,24 @@ loginBtn.addEventListener("click", () => {
     logedInUser.dateOfBirth,
     `What a year that was! It couldn't be differente, because on this day ${logedInUser.name} was born!`
   );
+});
+
+  //when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+  const loginInputs = [
+    loginUsername,
+    loginPassword
+]; //list of all inputs in this view
+
+loginInputs.forEach((input) => {
+  input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      loginBtn.click();
+    }
+  });
 });
 
 //TIMELINE
@@ -657,12 +695,11 @@ const modalInputsValidation = () => {
     newElementDateInput.value.trim() === ""
   ) {
     modalValidationText.style.color = "red";
-    modalValidationText.textContent =
-      "Fields can't be empty :(!";
+    modalValidationText.textContent = "Fields can't be empty :(!";
     return false;
   } else {
     modalValidationText.textContent =
-    "Fill in event info. Title cannot be longer than 35 characters."
+      "Fill in event info. Title cannot be longer than 35 characters.";
     modalValidationText.style.color = "white";
     return true;
   }
@@ -693,4 +730,22 @@ submitTimlineElementButton.addEventListener("click", () => {
     sortTimelineElements();
     console.log(timelineElementsDataArray);
   }
+});
+
+//when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+  const modalInputs = [
+    newElementTitleInput,
+    newElementDateInput
+]; //list of all inputs in this view except of description, enter shouldn't work there, because it makes a bug, when user want to use enter to split text
+
+modalInputs.forEach((input) => {
+  input.addEventListener("keyup", function (event) {
+    // Number 13 is the "Enter" key on the keyboard
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault();
+      // Trigger the button element with a click
+      submitTimlineElementButton.click();
+    }
+  });
 });
