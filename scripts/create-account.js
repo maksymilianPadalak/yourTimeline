@@ -1,19 +1,20 @@
 //Your Timeline is a single page application using gsap animations
 
 //START SCREEN
-
 const startScreen = document.querySelector(".start-screen-wrapper");
+
+//Button displayed after 10 seconds with text: 'click to start'
 const startBtn = document.querySelector(".start-btn");
 
 //animation with words visible at the start
 //learned in this tutorial: https://www.youtube.com/watch?v=ZT66N5hBiCE&ab_channel=codeSTACKr
-//modified to work well in Your Timeline project
 const words = ["your memories", "your history", "Your Timeline"];
 const cursor = gsap.to(".cursor", {
   opacity: 0,
   ease: "power2.inOut",
   repeat: -1,
 });
+
 let boxTl = gsap.timeline();
 
 boxTl.from(".hi", {
@@ -34,7 +35,7 @@ words.forEach((word) => {
   masterTl.add(tl);
 });
 
-//animation that shows start button after 10 seconds, after 'Your Timeline' is displayed
+//animation that shows start button after 10 seconds, after words: 'Your Timeline' are displayed
 gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 
 
@@ -42,7 +43,6 @@ gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 const createOrShowExemplary = document.querySelector(
   ".create-or-show-example-wrapper"
 );
-
 
 
 startBtn.addEventListener("click", () => {
@@ -56,9 +56,9 @@ startBtn.addEventListener("click", () => {
   });
 });
 
+
 //CHOICE BETWEEN CREATE ACCOUNT OR SHOW EXEMPLARY NBA TIMELINE
 //It is named "createOrShowExemplary"
-
 const newAccountBtn = document.querySelector(".new-account-btn");
 const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
 
@@ -67,7 +67,6 @@ const showExemplaryBtn = document.querySelector(".show-exemplary-btn");
 const accountInfo = document.querySelector(".create-account-wrapper");
 
 //If you choose to start Your Timeline journey, you will be taken to accountInfo view (by clilcking start Your Timeline journey Btn), which lets you create new accout
-
 newAccountBtn.addEventListener("click", () => {
   gsap.to(createOrShowExemplary, {
     duration: 1,
@@ -83,7 +82,6 @@ newAccountBtn.addEventListener("click", () => {
 });
 
 //If you choose to show exemplary Timeline, you will be taken to exemplary NBA timeline (that uses data from external API) view (by clilcking start Your Timeline journey Btn)
-
 showExemplaryBtn.addEventListener("click", () => {
   clearTimeline();
   gsap.to(createOrShowExemplary, {
@@ -94,21 +92,18 @@ showExemplaryBtn.addEventListener("click", () => {
   });
 
   //due to style issue start and login background must be deactivated before showing any timeline
-
   gsap.to(".start-login-wrapper", {
     duration: 0,
     display: "none",
     ease: "none",
     opacity: 0,
   });
-
-  createNBATimeline();
+  createNBATimeline(); //this function is declared later in CREATION AND NAVIGATION IN EXEMPLARY NBA TIMELINE sector
 });
 
 //CREATION AND NAVIGATION IN EXEMPLARY NBA TIMELINE
 
 //function to handle any http Request
-
 async function sendHttpRequest(method, url, headers, data) {
   try {
     const response = await fetch(url, {
@@ -130,18 +125,17 @@ async function sendHttpRequest(method, url, headers, data) {
   }
 }
 
-//function that fetches data from external API and creates timeline elements using functions, that are declered later in TIMELINE sector
-
+/*function that fetches data from external API and creates timeline elements using 
+functions createFirstTimelineElement and timelineElementCreator, that are declered in TIMELINE sector*/
 async function createNBATimeline() {
   try {
     //as an example this function loads 30 games, but it can work with any namber of elements
-    //as projects grows, this function will we changed, to load data from database and load timelines safed by users
-
+    //as projects grows, this function will we changed, to load data from database and load timelines saved by users
     for (let i = 1; i <= 30; i++) {
+      
       const loadingPercent = document.getElementById("loading-percent"); //fetching progress shown in percent
-
+    
       //loading animation
-
       gsap.to(".loading-screen-wrapper", {
         duration: 1,
         display: "flex",
@@ -159,7 +153,7 @@ async function createNBATimeline() {
         {
           "x-rapidapi-key":
             "1025f1cd61msh0f812df9d32f1b7p17ee61jsn13bb88e9e271",
-          "x-rapidapi-host": "free-nba.p.rapidapi.com", //That is my key, I don't want every user to generate a new one, it's just to simulate working with JSON data
+          "x-rapidapi-host": "free-nba.p.rapidapi.com", //That is my key, I don't want every user to generate a new one, it's just to present working with API and JSON data 
         }
       );
 
@@ -520,7 +514,7 @@ const createTimelineElementButton = document.querySelector(
   ".create-timeline-element-btn"
 );
 
-//visible in modal
+//visible in modal, that opens when user creates new timeline element
 const submitTimlineElementButton = document.querySelector(
   ".submit-timline-element-btn"
 );
@@ -532,7 +526,8 @@ const newElementDescriptionInput = document.querySelector(
 
 let timelineElementsDataArray = []; //array that stores all timeline elements, it will be useful when working with database, in order to safe users timelines
 
-//first timeline element is in original html script, other elements are just clones of the first one, with differente data, so we only have to change text content of the first one
+//function that selects first timeline element and fills it with data
+//other elements are clones of the first one, with differente text content
 const createFirstTimelineElement = (title, date, description) => {
   const timelineElement = timeline.firstElementChild;
   timelineElement.querySelector("h1").textContent = title;
@@ -545,7 +540,7 @@ const createFirstTimelineElement = (title, date, description) => {
   });
 };
 
-//clones elements from first timeline element and fills then in with other text content
+//function that clones elements from first timeline element and fills in with text content
 const timelineElementCreator = (title, date, description) => {
   const timelineElement = timeline.firstElementChild.cloneNode(true);
   timelineElement.querySelector("h1").textContent = title;
@@ -560,7 +555,6 @@ const timelineElementCreator = (title, date, description) => {
 };
 
 //sorts Timeline Elements in order accoring to date
-//original function taken from w3schools.com, and modified, to work with Your Timeline web app
 const sortTimelineElements = () => {
   let list, i, switching, b, shouldSwitch;
   list = document.querySelector(".timeline-list");
@@ -664,17 +658,18 @@ const modalInputsValidation = () => {
   ) {
     modalValidationText.style.color = "red";
     modalValidationText.textContent =
-      "Fields cannot be empty :(!";
+      "Fields can't be empty :(!";
     return false;
   } else {
     modalValidationText.textContent =
     "Fill in event info. Title cannot be longer than 35 characters."
+    modalValidationText.style.color = "white";
     return true;
   }
 };
 
-//creates new element from data provided by user closes modal and clearing inputs
-//only works if inputs aren't empty
+//this button on click creates new element from data provided by user, closes modal and clears inputs
+//only works if inputs aren't empty, to prevent creation of blank elements
 submitTimlineElementButton.addEventListener("click", () => {
   if (modalInputsValidation()) {
     timelineElementCreator(
