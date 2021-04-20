@@ -2,11 +2,11 @@
 ## By Maksymilian Padalak
 
 ## Table of contents
-* [General info](#general-info)
+* [About](#about)
 * [Technologies](#technologies)
 * [Setup](#setup)
 
-## About
+### About
 
 Some time ago I talked to my friend about the time we met when we were kids. A lot of memories cane flooding back. We had a great time talking about music we were listening to when we were ten, youtube videos that we watched together so many times and people we used to hang out with. It made me very nostalgic but also made me come up with and idea for an app. 
 
@@ -14,7 +14,7 @@ I thought it would be great to have some sort of visual database with all my mem
 
 The aim of this project is to make an application for creating timelines, Your Timelines, which you can share with your friends.
 
-## Navigation
+### Navigation
 
 Currently Your Timeline has to options:
 
