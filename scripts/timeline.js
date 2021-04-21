@@ -420,7 +420,7 @@ crateAccountBtn.addEventListener("click", () => {
   usernamesArray = accounts.map((account) => account.username);
 });
 
-//when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+//when in any input in this view, crateAccountBtn can be triggered by clicking "enter" key
 const createAccountInputs = [
   nameInput,
   usernameInput,
@@ -529,7 +529,7 @@ loginBtn.addEventListener("click", () => {
   );
 });
 
-  //when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+  //when in any input in this view, crateAccountBtn can be triggered by clicking "enter" key
   const loginInputs = [
     loginUsername,
     loginPassword
@@ -734,7 +734,7 @@ submitTimlineElementButton.addEventListener("click", () => {
   }
 });
 
-//when in any input in this view, crateAccountBtn must be triggered by clicking "enter" key
+//when in any input in this view, crateAccountBtn can be triggered by clicking "enter" key
   const modalInputs = [
     newElementTitleInput,
     newElementDateInput
