@@ -7,7 +7,6 @@ const startScreen = document.querySelector(".start-screen-wrapper");
 const startBtn = document.querySelector(".start-btn");
 
 //animation with words visible at the start
-//learned in this tutorial: https://www.youtube.com/watch?v=ZT66N5hBiCE&ab_channel=codeSTACKr
 const words = ["your memories", "your history", "Your Timeline"];
 const cursor = gsap.to(".cursor", {
   opacity: 0,
@@ -17,6 +16,7 @@ const cursor = gsap.to(".cursor", {
 
 let boxTl = gsap.timeline();
 
+//words in start screen without typing animation
 boxTl.from(".hi", {
   duration: 1,
   delay: 0.5,
@@ -27,8 +27,10 @@ boxTl.from(".hi", {
   },
 });
 
+//repeat -1 makes this animation infinite
 let masterTl = gsap.timeline({ repeat: -1 }).pause();
 
+//words with typing animation
 words.forEach((word) => {
   let tl = gsap.timeline({ repeat: 1, yoyo: true, repeatDelay: 1 });
   tl.to(".text", { duration: 1, text: word });
@@ -38,7 +40,7 @@ words.forEach((word) => {
 //animation that shows start button after 10 seconds, after words: 'Your Timeline' are displayed
 gsap.to(startBtn, { duration: 2, opacity: 1, delay: 10 });
 
-//this is next view, that startBtn will take us to, where we can choose between options: crate account (start your timeline journey) or show exemplary NBA timeline
+//this is next view, that startBtn will take the user to, where user can choose between options: crate account (start your timeline journey) or show exemplary NBA timeline
 const createOrShowExemplary = document.querySelector(
   ".create-or-show-example-wrapper"
 );
