@@ -5,7 +5,7 @@
 * [Navigation](#navigation)
 * [Set up](#set-up)
 * [Technologies](#technologies)
-* [What did I learn](#whatDidILearn)
+* [What did I learn](#what-did-I-Learn)
 * [Plans for the future](#plans-for-the-future)
 
 ### About
@@ -18,6 +18,9 @@ The aim of this project is to make an application for creating timelines, Your T
 
 ### Set up
 
+Download ziped folder.
+
+Open timeline.html in your browser.
 
 ### Navigation
 
@@ -47,7 +50,7 @@ Developing Your Timeline makes me a better programmer every day. In it's current
 - creating single page web applications
 - working with API and JSON data
 - creating loading screens
-- designing web applications
+- designing the looks of web applications
 
 ### Plans for the future
 
