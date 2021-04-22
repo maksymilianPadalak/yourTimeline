@@ -22,6 +22,8 @@ Download ziped folder.
 
 Open timeline.html in your browser.
 
+Safari desktop version does not support date picker. I'm working to fix it.
+
 ### Navigation
 
 Currently Your Timeline has to options:
@@ -51,6 +53,7 @@ Developing Your Timeline makes me a better programmer every day. In it's current
 - working with API and JSON data
 - creating loading screens
 - designing the looks of web applications
+- working with Google Chrome developer tools
 
 ### Plans for the future
 
