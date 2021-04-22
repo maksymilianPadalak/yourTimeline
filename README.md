@@ -53,6 +53,7 @@ Developing Your Timeline makes me a better programmer every day. In it's current
 - working with API and JSON data
 - creating loading screens
 - designing the looks of web applications
+- working with Google Chrome developer tools
 
 ### Plans for the future
 
