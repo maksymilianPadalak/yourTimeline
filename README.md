@@ -22,6 +22,8 @@ Download ziped folder.
 
 Open timeline.html in your browser.
 
+Safari desktop version does not support date picker. I'm working to fix it.
+
 ### Navigation
 
 Currently Your Timeline has to options:
