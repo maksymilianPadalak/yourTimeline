@@ -31,7 +31,7 @@ Safari desktop version does not support date picker. I'm working to fix it.
 Currently Your Timeline has to options:
 
 1. You can create your account, log in and make your own timeline by adding timeline elements. 
-2. You can view exemplary timeline with data from external API, that shows NBA games history. It uses HTTP requests and creates timeline elements from JSON data, which will be crucial, when Your Timeline will use databse in the future.
+2. You can view exemplary timeline with data from external API, that shows NBA games history. It uses HTTP requests and creates timeline elements from JSON data, which will be crucial, when Your Timeline will use database in the future.
 
 Your Timeline is optimized for desktop and mobile experience. It looks great on every popular smartphone and tablet.
 
