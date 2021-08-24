@@ -20,7 +20,7 @@ The aim of this project is to make an application for creating timelines, Your T
 
 Choose:
 
-- Open Your Timeline on netlify: 
+- Open Your Timeline on netlify: https://yourtimeline.netlify.app/
 - Download ziped folder and open timeline.html in your browser.
 
 Safari desktop version does not support date picker. I'm working to fix it.
