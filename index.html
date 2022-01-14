@@ -8,130 +8,14 @@
     <link rel="stylesheet" href="styles/timeline.css" />
   </head>
   <body>
-    <div class="start-login-wrapper">
-      <div class="start-screen-wrapper">
-        <h1>
-          <span class="hi">Hi! I'm</span>
-          <span class="curson"></span>
-          <span class="text"></span>
-          <span class="cursor">_</span>
-        </h1>
-
-        <div class="start-button-wrapper">
-          <button class="start-btn">Click to start!</button>
-        </div>
+    <div class="complements">
+      <h3>Hej Kamila.</h3>
+      <h1>Komplementy</h1>
+      <button class="complement-button" id="complement-button"">Kliknij aby dostać komplement</button>
+      <div class='complement-wrapper'>
+        <h3 id="complement-text"></h3>
       </div>
 
-      <div class="create-or-show-example-wrapper">
-        <button class="new-account-btn">Start Your Timline journey :)</button>
-        <button class="show-exemplary-btn">Show exemplary NBA games timeline</button>
-      </div>
-
-      <div class="create-account-wrapper">
-        <h2>Create Account</h2>
-        <div class="account-info-wrapper">
-          <label>Name</label>
-          <input type="text" class="name-input" />
-          <label>Username</label>
-          <input type="text" class="username-input" />
-          <label>Date of birth</label>
-          <input
-            type="date"
-            class="birth-input"
-          />
-          <label>Password</label>
-          <input type="password" class="password-input" />
-          <label>Confirm password</label>
-          <input type="password" class="confirm-password-input" />
-        </div>
-
-        <h4 class="validation-info">
-          Your password must be at least 8 characters long and contain at least
-          one digit and upper letter.
-        </h4>
-
-        <button class="create-account-btn">Create account!</button>
-        <button class="go-back-from-create-account-button">
-          &#8592
-        </button>
-      </div>
-
-      <div class="login-wrapper">
-        <p>Welcome to Your Timeline!</p>
-        <div class="login-inputs-wrapper">
-          <tag>Username</tag>
-          <input class="username-login-input" type="text" />
-          <tag>Password</tag>
-          <input class="password-login-input" type="password" />
-        </div>
-
-        <div class="login-validation-wrapper"></div>
-
-        <button class="login-button">Log In!</button>
-      </div>
-    </div>
-
-
-    <div class="loading-screen-wrapper">
-      <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-      <h1>Loading
-      </h1>
-      <h2 id="loading-percent">
-      </h2>
-    </div>
-    
-
-    <div class="timeline-window-wrapper">
-      <div class="timeline-navigation-wrapper">
-        <button class="create-timeline-element-btn">
-          Create timline element
-        </button>
-        <button class="create-account-from-exemplary-timeline-btn">
-          Create your own account
-        </button>
-      </div>
-      <div class="timeline-wrapper">
-        <div class="timeline">
-          <ul class="timeline-list">
-            <li>
-              <div class="timeline-content">
-                <div class="headline-wrapper">
-                  <h1></h1>
-                  <h4></h4>
-                </div>
-                <p></p>
-              </div>
-            </li>
-          </ul>
-
-        </div>
-      </div>
-
-      <div class="modal-wrapper" id="modal">
-        <div class="modal-header">
-          <div class="title">Event info</div>
-          <button class="close-modal-button">&times;</button>
-        </div>
-        <div class="modal-body">
-          <div class="modal-inputs-wrapper">
-            <label>Event title</label>
-            <input type="text" class="event-title-input" maxlength="28"/>
-            <label>Date</label>
-            <input
-              type="date"
-              class="event-date-input"
-              type="number"
-            />
-            <label>Description</label>
-            <textarea type="text" class="event-description-input"></textarea>
-          </div>
-          <h3 id="modal-inputs-validation">
-            Fill in event info. Title cannot be longer than 35 characters.
-          </h3>
-          <button class="submit-timline-element-btn">Submit!</button>
-        </div>
-      </div>
-      <div class="overlay"></div>
     </div>
 
     <script src="scripts/timeline.js" defer></script>
