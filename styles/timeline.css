@@ -1,14 +1,15 @@
-@import url("http://fonts.googleapis.com/css?family=Akaya+Kanadaka&subset=latin,latin-ext");
+@import url("http://fonts.googleapis.com/css?family=Aladin&subset=latin,latin-ext");
 
 * {
   margin: 0;
   padding: 0;
-  font-family: "Akaya Kanadaka", sans-serif;
+  font-family: "Aladin", sans-serif;
 }
 
 body {
   background: #00050a;
   color: white;
+  font-weight: 200;
 }
 
 .complements {
