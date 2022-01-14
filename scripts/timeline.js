@@ -3,7 +3,7 @@ const getComplementButton = document.getElementById("complement-button");
 let complementIndex = 0;
 getComplementButton.addEventListener("click", () => {
   complementText.textContent = complementsList[complementIndex];
-  if (complementIndex <= 2) {
+  if (complementIndex <= 3) {
     complementIndex += 1;
   } else {
     complementIndex = 0;
